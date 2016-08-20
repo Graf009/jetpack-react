@@ -1,0 +1,6 @@
+{
+  "extends": "@eagle/eslint-config-eagle",
+  "globals": {
+      "window": false
+    }
+}
