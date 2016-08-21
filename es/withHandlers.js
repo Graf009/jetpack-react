@@ -2,21 +2,17 @@ import _extends from 'babel-runtime/helpers/extends';
 import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
 import _possibleConstructorReturn from 'babel-runtime/helpers/possibleConstructorReturn';
 import _inherits from 'babel-runtime/helpers/inherits';
+import _Object$keys from 'babel-runtime/core-js/object/keys';
 import { Component } from 'react';
 import createEagerFactory from './createEagerFactory';
 import createHelper from './createHelper';
 
 var mapValues = function mapValues(obj, func) {
   var result = [];
-  var i = 0;
-  /* eslint-disable no-restricted-syntax */
-  for (var key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      i += 1;
-      result[key] = func(obj[key], key, i);
-    }
-  }
-  /* eslint-enable no-restricted-syntax */
+  _Object$keys(obj).forEach(function (key, index) {
+    result[key] = func(obj[key], key, index);
+  });
+
   return result;
 };
 

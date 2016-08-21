@@ -4,15 +4,10 @@ import createHelper from './createHelper'
 
 const mapValues = (obj, func) => {
   const result = []
-  let i = 0
-  /* eslint-disable no-restricted-syntax */
-  for (const key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      i += 1
-      result[key] = func(obj[key], key, i)
-    }
-  }
-  /* eslint-enable no-restricted-syntax */
+  Object.keys(obj).forEach((key, index) => {
+    result[key] = func(obj[key], key, index)
+  })
+
   return result
 }
 

@@ -18,6 +18,10 @@ var _inherits2 = require('babel-runtime/helpers/inherits');
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
+var _keys = require('babel-runtime/core-js/object/keys');
+
+var _keys2 = _interopRequireDefault(_keys);
+
 var _react = require('react');
 
 var _createEagerFactory = require('./createEagerFactory');
@@ -32,15 +36,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mapValues = function mapValues(obj, func) {
   var result = [];
-  var i = 0;
-  /* eslint-disable no-restricted-syntax */
-  for (var key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      i += 1;
-      result[key] = func(obj[key], key, i);
-    }
-  }
-  /* eslint-enable no-restricted-syntax */
+  (0, _keys2.default)(obj).forEach(function (key, index) {
+    result[key] = func(obj[key], key, index);
+  });
+
   return result;
 };
 
